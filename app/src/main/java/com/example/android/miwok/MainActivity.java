@@ -15,11 +15,14 @@
  */
 package com.example.android.miwok;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,15 +33,50 @@ public class MainActivity extends AppCompatActivity {
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
 
-        //Create a clickListener object for numbers
-        NumbersClickListener clickListener = new NumbersClickListener();
         //We create a TextView from the id of the xml View
         TextView numbers = (TextView) findViewById(R.id.numbers);
-        //now we set the NumberClickListener to launch when numbers is clicked
-        if(numbers != null){
-            numbers.setOnClickListener(clickListener);
-        }
 
+        numbers.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //A toast displays a simple message that disappears after a while
+                Toast.makeText(view.getContext(),
+                        "Open the list of numbers", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        TextView family = (TextView) findViewById(R.id.family);
+
+        family.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //A toast displays a simple message that disappears after a while
+                Toast.makeText(view.getContext(),
+                        "Open the list of family members", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        TextView colors = (TextView) findViewById(R.id.colors);
+
+        colors.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //A toast displays a simple message that disappears after a while
+                Toast.makeText(view.getContext(),
+                        "Open the list of colors", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        TextView phrases = (TextView) findViewById(R.id.phrases);
+
+        phrases.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //A toast displays a simple message that disappears after a while
+                Toast.makeText(view.getContext(),
+                        "Open the list of phrases", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }
