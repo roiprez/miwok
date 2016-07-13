@@ -19,6 +19,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,10 +29,16 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
+
+        //Create a clickListener object for numbers
+        NumbersClickListener clickListener = new NumbersClickListener();
+        //We create a TextView from the id of the xml View
+        TextView numbers = (TextView) findViewById(R.id.numbers);
+        //now we set the NumberClickListener to launch when numbers is clicked
+        if(numbers != null){
+            numbers.setOnClickListener(clickListener);
+        }
+
     }
 
-    public void openNumbersList(View view){
-        Intent i = new Intent(this,NumbersActivity.class);
-        startActivity(i);
-    }
 }
