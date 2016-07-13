@@ -22,7 +22,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,9 +38,9 @@ public class MainActivity extends AppCompatActivity {
         numbers.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                //A toast displays a simple message that disappears after a while
-                Toast.makeText(view.getContext(),
-                        "Open the list of numbers", Toast.LENGTH_SHORT).show();
+                //Creating an intent for the category view
+                Intent numbersIntent =  new Intent(MainActivity.this,NumbersActivity.class);
+                startActivity(numbersIntent);
             }
         });
 
@@ -50,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
         family.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                //A toast displays a simple message that disappears after a while
-                Toast.makeText(view.getContext(),
-                        "Open the list of family members", Toast.LENGTH_SHORT).show();
+                //Creating an intent for the category view
+                Intent familyIntent =  new Intent(MainActivity.this,FamilyActivity.class);
+                startActivity(familyIntent);
             }
         });
 
@@ -61,9 +60,9 @@ public class MainActivity extends AppCompatActivity {
         colors.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                //A toast displays a simple message that disappears after a while
-                Toast.makeText(view.getContext(),
-                        "Open the list of colors", Toast.LENGTH_SHORT).show();
+                //Creating an intent for the category view
+                Intent colorsIntent =  new Intent(MainActivity.this,ColorsActivity.class);
+                startActivity(colorsIntent);
             }
         });
 
@@ -72,9 +71,9 @@ public class MainActivity extends AppCompatActivity {
         phrases.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                //A toast displays a simple message that disappears after a while
-                Toast.makeText(view.getContext(),
-                        "Open the list of phrases", Toast.LENGTH_SHORT).show();
+                //Creating an intent for the category view
+                Intent phrasesIntent =  new Intent(MainActivity.this,PhrasesActivity.class);
+                startActivity(phrasesIntent);
             }
         });
     }
