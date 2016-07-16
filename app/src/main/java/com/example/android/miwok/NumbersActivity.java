@@ -15,9 +15,15 @@
  */
 package com.example.android.miwok;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.util.Log;
+import android.view.Gravity;
+import android.widget.LinearLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -28,6 +34,7 @@ public class NumbersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers);
 
+        //Number names in english
         ArrayList<String> words = new ArrayList<>();
         words.add("one");
         words.add("two");
@@ -40,9 +47,15 @@ public class NumbersActivity extends AppCompatActivity {
         words.add("nine");
         words.add("ten");
 
-        Log.v("NumbersActivity", "Word at index 0 : " + words.get(0));
-        Log.v("NumbersActivity", "Word at index 7 : " + words.get(7));
+        LinearLayout rootView = (LinearLayout) findViewById(R.id.rootView);
+
+        for(int i = 0; i < words.size(); i++){
+            //"this" belongs to the NumbersActivy class, so it is itself
+            TextView wordView = new TextView(this);
+            wordView.setText(words.get(i));
+            wordView.setTextColor(Color.parseColor("#009688"));
+            wordView.setGravity(Gravity.CENTER_HORIZONTAL);
+            rootView.addView(wordView);
+        }
     }
-
-
 }
