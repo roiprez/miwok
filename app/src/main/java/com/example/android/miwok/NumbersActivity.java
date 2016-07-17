@@ -18,11 +18,10 @@ package com.example.android.miwok;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutCompat;
-import android.util.Log;
 import android.view.Gravity;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
-import android.widget.TableRow;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -47,15 +46,13 @@ public class NumbersActivity extends AppCompatActivity {
         words.add("nine");
         words.add("ten");
 
-        LinearLayout rootView = (LinearLayout) findViewById(R.id.rootView);
+        //Creating an ArrayAdapter which creates an array that fits the layout of a view
+        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, words);
 
-        for(int i = 0; i < words.size(); i++){
-            //"this" belongs to the NumbersActivy class, so it is itself
-            TextView wordView = new TextView(this);
-            wordView.setText(words.get(i));
-            wordView.setTextColor(Color.parseColor("#009688"));
-            wordView.setGravity(Gravity.CENTER_HORIZONTAL);
-            rootView.addView(wordView);
-        }
+        //Creating the ListView object from the ListView XML
+        ListView listView = (ListView) findViewById(R.id.list);
+
+        //Set an adapter for the ListView
+        listView.setAdapter(itemsAdapter);
     }
 }
