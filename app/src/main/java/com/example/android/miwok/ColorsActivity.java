@@ -15,7 +15,7 @@
  */
 package com.example.android.miwok;
 
-import android.graphics.Color;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
@@ -30,18 +30,23 @@ public class ColorsActivity extends AppCompatActivity {
 
         ArrayList<Word> words = new ArrayList<>();
 
-        words.add(new Word("black", "lutti"));
-        words.add(new Word("yellow", "otiiko"));
-        words.add(new Word("blue", "tollokosu"));
+        words.add(new Word("red", "weṭeṭṭi",R.drawable.color_red));
+        words.add(new Word("green", "chokokki", R.drawable.color_green));
+        words.add(new Word("brown", "ṭakaakki", R.drawable.color_brown));
+        words.add(new Word("gray", "ṭopoppi", R.drawable.color_gray));
+        words.add(new Word("black", "kululli", R.drawable.color_black));
+        words.add(new Word("white", "kelelli", R.drawable.color_white));
+        words.add(new Word("dusty yellow", "ṭopiisә", R.drawable.color_dusty_yellow));
+        words.add(new Word("mustard yellow", "chiwiiṭә", R.drawable.color_mustard_yellow));
+
 
 
 
         //Creating an ArrayAdapter which creates an array that fits the layout of a view
-        WordAdapter itemsAdapter = new WordAdapter(this, words);
+        WordAdapter itemsAdapter = new WordAdapter(this, words, R.color.category_colors);
 
         //Creating the ListView object from the ListView XML
         ListView listView = (ListView) findViewById(R.id.list);
-        listView.setBackgroundColor(getResources().getColor(R.color.category_colors));
 
         //Set an adapter for the ListView
         listView.setAdapter(itemsAdapter);

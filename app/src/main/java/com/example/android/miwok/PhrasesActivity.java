@@ -15,7 +15,6 @@
  */
 package com.example.android.miwok;
 
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
@@ -30,18 +29,24 @@ public class PhrasesActivity extends AppCompatActivity {
 
         ArrayList<Word> words = new ArrayList<>();
 
-        words.add(new Word("black", "lutti"));
-        words.add(new Word("yellow", "otiiko"));
-        words.add(new Word("blue", "tollokosu"));
+        words.add(new Word("Where are you going?", "minto wuksus"));
+        words.add(new Word("What is your name?", "tinnә oyaase'nә"));
+        words.add(new Word("My name is...", "oyaaset..."));
+        words.add(new Word("How are you feeling?", "michәksәs?"));
+        words.add(new Word("I'm feeling good", "kuchi achit"));
+        words.add(new Word("Are you coming?", "әәnәs'aa?"));
+        words.add(new Word("Yes, i'm coming", "hәә’ әәnәm"));
+        words.add(new Word("I'm coming", "әәnәm"));
+        words.add(new Word("Let's go", "yoowutis"));
+        words.add(new Word("Come here", "әnni'nem"));
 
 
 
         //Creating an ArrayAdapter which creates an array that fits the layout of a view
-        WordAdapter itemsAdapter = new WordAdapter(this, words);
+        WordAdapter itemsAdapter = new WordAdapter(this, words, R.color.category_phrases);
 
         //Creating the ListView object from the ListView XML
         ListView listView = (ListView) findViewById(R.id.list);
-        listView.setBackgroundColor(getResources().getColor(R.color.category_phrases));
 
         //Set an adapter for the ListView
         listView.setAdapter(itemsAdapter);
