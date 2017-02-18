@@ -26,9 +26,6 @@ public class WordAdapter extends ArrayAdapter<Word> {
         this.backgroundColor = backgroundColor;
     }
 
-    public int getBackgroundColor() {
-        return backgroundColor;
-    }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -39,7 +36,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
                     R.layout.list_item, parent, false);
         }
         // Get the {@link AndroidFlavor} object located at this position in the list
-        Word currentWord = getItem(position);
+        final Word currentWord = getItem(position);
 
         // Find the TextView in the list_item.xml layout with the ID version_name
         TextView englishTextView = (TextView) listItemView.findViewById(R.id.english_one);
@@ -58,10 +55,9 @@ public class WordAdapter extends ArrayAdapter<Word> {
         // set this text on the number TextView
         translationImageView.setImageResource(currentWord.getTranslationImage());
 
-        // Return the whole list item layout (containing 2 TextViews and an ImageView)
-        // so that it can be shown in the ListView
-
         listItemView.setBackgroundColor(ContextCompat.getColor(getContext(),backgroundColor));
         return listItemView;
     }
+
+
 }
